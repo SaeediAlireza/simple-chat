@@ -1,0 +1,37 @@
+{{ template "header.html" }}
+<br>
+<br>
+<div id="messages">
+    {{range .pms}}
+        <p style="margin: 0;color: rgb(161, 114, 75);">{{ .Sendername }}:</p>
+        <p style="margin-top: 0;margin-bottom: 10px; color: rgb(124, 208, 163);" >{{ .Text }}</p>
+        
+    {{end}}
+</div>
+
+<div style="  z-index: 1;
+        position: fixed;
+        padding: auto;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        height: 30px;
+        background-color: rgb(124, 208, 163);">
+    <form id="login" style="margin-top: 5px;">
+        <label >whrite your text:</label>
+        <input id="text" type="text" autocomplete="off" style="width: 60%;">
+        <input id="sendername" type="hidden" value="{{ .username }}">
+        <input id="recevername" type="hidden" value="{{ .recevername }}">
+        <input type="submit">
+    </form>
+</div>
+<!-- <form id="login">
+    <label >Username</label>
+    <input id="username" type="text">
+    <label >Password</label>
+    <input id="password" type="password">
+    <input type="submit">
+</form> -->
+
+<script src="../../site/js/pv.js"></script>
+{{ template "footer.html" }}
